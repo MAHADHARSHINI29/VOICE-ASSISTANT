@@ -1,29 +1,13 @@
 pluginManagement {
-    def flutterSdkPath = {
-        def properties = new Properties()
-        def propertiesFile = new File(rootProject.projectDir, "local.properties")
-        if (propertiesFile.exists()) {
-            properties.load(new FileInputStream(propertiesFile))
-            properties.getProperty('flutter.sdk')
-        } else {
-            null
-        }
-    }
-
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
         maven { url 'https://storage.googleapis.com/download.flutter.io' }
-        if (flutterSdkPath()) {
-            maven {
-                url "${flutterSdkPath()}/packages/flutter_tools/gradle/"
-            }
-        }
     }
 
     plugins {
-        id "dev.flutter.flutter-gradle-plugin" version "1.0.0" apply false
+        id "dev.flutter.flutter-gradle-plugin" version "1.0.0"
     }
 }
 
@@ -35,12 +19,4 @@ dependencyResolutionManagement {
     }
 }
 
-include ':app'
-
-def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
-
-def plugins = new Properties()
-def pluginsFile = new File(flutterProjectRoot.toFile(), '.flutter-plugins')
-if (pluginsFile.exists()) {
-    pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) }
-}
+include(":app")
