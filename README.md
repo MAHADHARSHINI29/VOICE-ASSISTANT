@@ -25,7 +25,9 @@ This project implements a voice-assistant application that supports both Android
    git clone https://github.com/MAHADHARSHINI29/VOICE-ASSISTANT.git  
    cd VOICE-ASSISTANT
 2. Install the dependencies
-   flutter pub get
-3. Run the app 
-   flutter run  
+
+      flutter pub get
+4. Run the app 
+
+      flutter run  
 
